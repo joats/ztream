@@ -1,32 +1,32 @@
 import React from 'react';
-import { Row, Col, FormGroup, Label, Input } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 import PrimaryButton from '../../common/PrimaryButton';
 import Header from '../../common/Header';
 import './Login.css';
 
-const scopes = [
-  'user-read-private',
-  'playlist-read-private',
-  'playlist-read-collaborative',
-  'playlist-modify-public',
-  'playlist-modify-private',
-  'user-top-read',
-  'user-library-read',
-  'user-library-modify',
-  'user-follow-read',
-  'user-follow-modify'
-]
+// const scopes = [
+//   'user-read-private',
+//   'playlist-read-private',
+//   'playlist-read-collaborative',
+//   'playlist-modify-public',
+//   'playlist-modify-private',
+//   'user-top-read',
+//   'user-library-read',
+//   'user-library-modify',
+//   'user-follow-read',
+//   'user-follow-modify'
+// ]
 
-const client_id = '4032a555b4344bc5bf846769f15adc98';
-const redirect_uri = 'http://localhost:8888/callback';
-
-const login_url = 'https://accounts.spotify.com/authorize?client_id='
-+ client_id
-+ '&redirect_uri='
-+ redirect_uri
-+ '&scope='
-+ encodeURIComponent(scopes.join(' '))
-+ '&response_type=token';
+// const client_id = '4032a555b4344bc5bf846769f15adc98';
+// const redirect_uri = 'http://localhost:8888/callback';
+//
+// const login_url = 'https://accounts.spotify.com/authorize?client_id='
+// + client_id
+// + '&redirect_uri='
+// + redirect_uri
+// + '&scope='
+// + encodeURIComponent(scopes.join(' '))
+// + '&response_type=token';
 
 class Login extends React.Component {
   render () {

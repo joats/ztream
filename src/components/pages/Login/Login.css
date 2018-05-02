@@ -10,3 +10,9 @@
 .Login-paragraph {
   opacity: 0.6;
 }
+
+.Profile-info-container,
+label {
+  color: white;
+  opacity: 0.6;
+}

@@ -3,4 +3,5 @@
   background-color: black;
   height: 60px;
   position: fixed;
+  z-index: 100;
 }

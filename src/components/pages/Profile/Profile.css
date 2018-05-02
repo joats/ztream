@@ -1,0 +1,16 @@
+
+.Profile-image {
+  height: 100px;
+  width: 100px;
+  border-radius: 100px;
+}
+
+.Profile-image-container {
+  padding-top: 100px;
+}
+
+.Profile-back-btn {
+  color: white;
+  opacity: 0.7;
+  font-size: 40px;
+}

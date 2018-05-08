@@ -31,4 +31,9 @@
 .Home-playlist-btn {
   font-size: 25px;
   opacity: 0.4;
+  color: #FFFF;
+}
+
+.Home-search-btn {
+  font-size: 25px;
 }

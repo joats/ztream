@@ -87,10 +87,11 @@ class Home extends Component {
       <Row className="Home-container">
         <Col className="p-0 w-100 p-100">
           <Header className="Home-Header">
-            <div className="h-100 pr-3 d-flex align-items-center flex-row-reverse">
+            <div className="h-100 pr-3 d-flex align-items-center flex-row-reverse justify-content-between">
               <Link to="/profile">
                 <img className="Home-profile-image" src={this.state.userImageUrl} alt="user" />
               </Link>
+              <i className="Home-search-btn pl-3 fas fa-search justify-content-end" />
             </div>
           </Header>
 

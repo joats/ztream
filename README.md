@@ -1,5 +1,5 @@
 # ztream
-___
+
 ztream is a web application for streaming music, using Spotify Web Api.
 Currently being developed.
 

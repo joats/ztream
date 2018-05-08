@@ -3,6 +3,7 @@ import { Row, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setAuthToAPI } from '../../../actions/user_actions';
+import { setActivePlaylist } from '../../../actions/playlist_actions';
 import { fetchUser, fetchPlaylists } from '../../../actions/api_actions';
 import Header from '../../common/Header';
 import axios from 'axios';
@@ -45,7 +46,16 @@ class Home extends Component {
     })
   }
 
+  setPlaylist(id) {
+    this.props.setActivePlaylist(id)
+  }
+
+  setActivePlaylist(playlistId) {
+    this.props.setActivePlaylist(playlistId)
+  }
+
   componentDidMount() {
+    console.log(this.props.match.params.id)
     fetchUser().then(user => {
       this.renderHeaderImage(user)
     })
@@ -55,35 +65,35 @@ class Home extends Component {
   }
 
   render() {
-    console.log(this.state.playlists)
     const playlistList = this.state.playlists.map(playlist => (
-      <li className="Home-playlist pt-3 d-flex align-items-center">
-        <div>
-          <img className="Home-playlist-image" src={playlist.images[0].url} alt="playlist" />
-        </div>
+      <Link to="/playlist" setPlaylist={playlist.id}>
+        <li className="Home-playlist pt-3 d-flex align-items-center">
+          <div>
+            <img className="Home-playlist-image" src={playlist.images[0].url} alt="playlist" />
+          </div>
 
-        <div className="pl-2">
-          <p className="m-0">{playlist.name}</p>
-          <p className="Home-playlist-tracks m-0">{playlist.tracks.total} tracks</p>
-        </div>
+          <div className="pl-2">
+            <p className="m-0">{playlist.name}</p>
+            <p className="Home-playlist-tracks m-0">{playlist.tracks.total} tracks</p>
+          </div>
 
-        <div className="ml-auto pr-3">
-          <i className="Home-playlist-btn fas fa-caret-right" />
-        </div>
-      </li>
+          <div className="ml-auto pr-3">
+            <i className="Home-playlist-btn fas fa-caret-right" />
+          </div>
+        </li>
+      </Link>
     ))
     return (
       <Row className="Home-container">
         <Col className="p-0 w-100 p-100">
-          <div>
-            <Header className="Home-Header">
-              <div className="h-100 pr-3 d-flex align-items-center flex-row-reverse">
-                <Link to="/profile">
-                  <img className="Home-profile-image" src={this.state.userImageUrl} alt="user" />
-                </Link>
-              </div>
-            </Header>
-          </div>
+          <Header className="Home-Header">
+            <div className="h-100 pr-3 d-flex align-items-center flex-row-reverse">
+              <Link to="/profile">
+                <img className="Home-profile-image" src={this.state.userImageUrl} alt="user" />
+              </Link>
+            </div>
+          </Header>
+
           <ul className="Home-playlist-container">
             {playlistList}
           </ul>
@@ -101,4 +111,5 @@ function mapStateToProps(state) {
 
 export default connect(mapStateToProps, {
   setAuthToAPI,
+  setActivePlaylist,
 })(Home)

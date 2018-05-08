@@ -6,7 +6,8 @@ import store from './store';
 import './App.css';
 import Login from './components/pages/Login';
 import Home from './components/pages/Home';
-import Profile from './components/pages/Profile'
+import Profile from './components/pages/Profile';
+import Playlist from './components/pages/Playlist';
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
               <Route exact path="/" component={Login} />
               <Route exact path="/home" component={Home} />
               <Route exact path="/profile" component={Profile} />
+              <Route exact path="/playlist" component={Playlist} />
             </Switch>
           </Router>
         </Container>

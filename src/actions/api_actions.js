@@ -5,7 +5,6 @@ const BASE_URL = 'https://api.spotify.com/v1'
 // Authorization
 export const setAccessToken = async (token, dispatch) => {
   localStorage.setItem('token', token)
-  // const access_token = localStorage.getItem('token')
 }
 
 // User
@@ -37,5 +36,20 @@ export const fetchPlaylists = async dispatch => {
       }
     }).then(data => {
       return data.data.items
+    })
+}
+
+export const fetchPlaylistTracks = async (playlistId, dispatch) => {
+  const token = localStorage.getItem('token')
+  const authString = 'Bearer ' + token
+
+  return await axios
+    .get(BASE_URL + `/users/me/playlists/${playlistId}`, {
+      headers: {
+        Accept: 'application/json',
+        Authorization: authString
+      }
+    }).then(data => {
+      return data.data
     })
 }
